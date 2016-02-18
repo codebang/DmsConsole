@@ -32,7 +32,9 @@ snapdir=`find $dmsbox_target -type d -name 'dmsbox-*-SNAPSHOT'`
 [ "$snapdir" == "" ] && (echo "Error: Couldn't find snapshot directory."; exit 1)
 dmsbox_version=$(echo $snapdir | sed 's^.*/dmsbox-\([0-9]*\.[0-9]*\)\.\([0-9]*\)-SNAPSHOT^\1_\2^')
 
-if [ -f ../jetty-distribution-$JETTY_VERSION.tar.gz ];then
+cd $package_dir
+
+if [ ! -f ../jetty-distribution-$JETTY_VERSION.tar.gz ];then
   wget --no-check-certificate $JETTY_URL
 fi
 
