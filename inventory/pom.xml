@@ -1,0 +1,24 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+      <groupId>com.dadynet.sa</groupId>
+      <artifactId>dms-console</artifactId>
+      <version>1.0</version>
+  </parent>
+  <groupId>com.dadynet.sa.inventory</groupId>
+  <artifactId>dms-inventory</artifactId>
+  <packaging>pom</packaging>
+  <name>dms-inventory</name>
+  <modules>
+  <module>inventory-zookeeper</module>
+  </modules>
+  <dependencies>
+	  <dependency>
+	  	<groupId>com.dadynet.sa</groupId>
+	    <artifactId>inventory-api</artifactId>
+	    <version>1.0</version>
+	    <scope>system</scope>
+	    <systemPath>${basedir}/../../inventory-api/target/inventory-api-1.0.jar</systemPath>
+	  </dependency>   
+   </dependencies>
+</project>
