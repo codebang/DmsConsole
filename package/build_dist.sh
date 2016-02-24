@@ -34,7 +34,7 @@ dmsbox_version=$(echo $snapdir | sed 's^.*/dmsbox-\([0-9]*\.[0-9]*\)\.\([0-9]*\)
 
 cd $package_dir
 
-if [ ! -f ../jetty-distribution-$JETTY_VERSION.tar.gz ];then
+if [ ! -f jetty-distribution-$JETTY_VERSION.tar.gz ];then
   wget --no-check-certificate $JETTY_URL
 fi
 

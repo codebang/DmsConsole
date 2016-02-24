@@ -82,6 +82,27 @@
                 $(".run_cmd").addClass('run_cmd_active');
             });
 
+            //select all
+            $('#download').click(function () {
+                var ids=[];
+                $(".run_cmd_active").each(function (index) {
+                    var id = $(this).find(".host").attr("data-hostId");
+                    if (ids.indexOf(id)==-1) {
+                        ids.push(id);
+                    }
+                });
+
+                var src  = 'setDownload.action'
+                
+                var idListStr = '?action=upload';
+                ids.forEach(function (entry) {
+                    idListStr = idListStr + '&idList=' + entry;
+                });
+
+                window.location = src + idListStr
+            });
+
+
 
             //upload frame dialog
             $('#upload_push').click(function () {
@@ -563,6 +584,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Terminal Actions<b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                            <li><a id="download" href="#">Remote Download</a></li>
                             <li><a id="upload_push" href="#">Upload &amp; Push</a></li>
                             <li><a id="connect_to_host" data-toggle="modal" data-target="#connect_to_host_dialog" href="#">Connect to Host</a></li>
                             <li><a id="dup_session" href="#">Duplicate Session</a></li>

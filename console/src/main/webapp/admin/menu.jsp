@@ -145,6 +145,12 @@
                 </td>
                 <td>Administrative settings</td>
             </tr>
+            <tr>
+                <td>
+                  <a href="../admin/setDownload.action">File Download</a>
+                </td>
+                <td>Download</td>
+            </tr>
             </tbody>
         </table>
     </div>
