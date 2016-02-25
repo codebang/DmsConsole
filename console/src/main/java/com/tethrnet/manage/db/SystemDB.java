@@ -171,7 +171,7 @@ public class SystemDB {
 		try {
 			con = DBUtils.getConn();
 
-			getSystem(con, id);
+			hostSystem = getSystem(con, id);
 
 
 		} catch (Exception e) {

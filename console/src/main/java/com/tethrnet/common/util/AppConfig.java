@@ -31,7 +31,7 @@ public class AppConfig {
 
     static {
         try {
-            prop = new PropertiesConfiguration(AppConfig.class.getClassLoader().getResource(".").getPath() + "/KeyBoxConfig.properties");
+            prop = new PropertiesConfiguration(AppConfig.class.getClassLoader().getResource(".").getPath() + "/TethrnetConfig.properties");
         } catch (Exception ex) {
             log.error(ex.toString(), ex);
         }

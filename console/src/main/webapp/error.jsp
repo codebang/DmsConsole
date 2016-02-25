@@ -20,7 +20,7 @@
 <html>
 <head>
     <jsp:include page="_res/inc/header.jsp"/>
-    <title>KeyBox - Error</title>
+    <title>Tethrnet Remote Console - Error</title>
 </head>
 <body>
 
@@ -32,7 +32,7 @@
                 <div class="nav-img"><img src="<%= request.getContextPath() %>/img/keybox_40x40.png" alt="keybox"/></div>
             </div>
             <div class="navbar-brand">
-                KeyBox
+                Tethrnet Remote Console
             </div>
         </div>
         <!--/.nav-collapse -->

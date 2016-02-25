@@ -29,7 +29,7 @@ public class DSPool {
     private static Logger log = LoggerFactory.getLogger(DSPool.class);
 
     //system path to the H2 DB
-    private static String DB_PATH = DBUtils.class.getClassLoader().getResource("keydb").getPath();
+    private static String DB_PATH = DBUtils.class.getClassLoader().getResource("tethrnetdb").getPath();
 
 
     private static PoolingDataSource dsPool;
@@ -60,9 +60,9 @@ public class DSPool {
 
 
         // create a database connection
-        String user = "keybox";
+        String user = "tethrnetbox";
         String password = "filepwd 45WJLnwhpA47EepT162hrVnDn3vYRvJhpZi0sVdvN9Sdsf";
-        String connectionURI = "jdbc:h2:" + DB_PATH + "/keybox;CIPHER=AES";
+        String connectionURI = "jdbc:h2:" + DB_PATH + "/tethrnetbox;CIPHER=AES";
 
         String validationQuery = "select 1";
 

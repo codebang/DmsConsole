@@ -35,16 +35,20 @@ public  class Account {
 
 	public static Account fromMap(Map properties) throws InvalidObjectProperty{
 		
-		if (properties.containsKey("accountName") && properties.containsKey("accountId"))
+		if (! properties.containsKey("accountName"))
+		{
+			throw new InvalidObjectProperty("Account","accountName","missing");
+		}
+		else if (! properties.containsKey("accountId")){
+			throw new InvalidObjectProperty("Account","accountId","missing");
+		}
+		else 
 		{
 			String name = properties.get("accountName").toString();
 			String id = properties.get("accountId").toString();
 			return new Account(id, name);
 		}
-		else
-		{
-			throw new InvalidObjectProperty("Account","accountName","missing");
-		}
+	
 	}
 	
 

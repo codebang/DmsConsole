@@ -92,14 +92,15 @@
                     }
                 });
 
-                var src  = 'setDownload.action'
                 
-                var idListStr = '?action=upload';
+                var idListStr = '?action=download';
                 ids.forEach(function (entry) {
                     idListStr = idListStr + '&idList=' + entry;
                 });
 
-                window.location = src + idListStr
+                $("#upload_push_frame").attr("src", 'setDownload.action' + idListStr);
+                $("#upload_push_dialog").modal();
+               
             });
 
 

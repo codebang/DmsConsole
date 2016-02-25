@@ -42,7 +42,7 @@ public class ZooKeeperInventory implements DmsInventory {
 	public List<Account> listAccounts() throws RetrieveInventoryException {
 		// TODO Auto-generated method stub
 		Map<String,String> accountProp = new HashMap<String, String>();
-		accountProp.put("account_name", "accountName");
+		accountProp.put("name", "accountName");
 		accountProp.put("id", "accountId");
 		List<Account> ret = new ArrayList<Account>();
 		try

@@ -40,7 +40,7 @@ import java.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class DowloadAction extends ActionSupport  {
+public class DowloadAction extends ActionSupport implements ServletRequestAware  {
 
     private static Logger log = LoggerFactory.getLogger(DowloadAction.class);
     HttpServletRequest servletRequest;
@@ -49,7 +49,18 @@ public class DowloadAction extends ActionSupport  {
     FileInputStream fileInputStream;
     HostSystem  hostSystem;
     List<Long> idList = new ArrayList<Long>();
-    SchSession session = null; 
+    
+    public List<Long> getIdList() {
+		return idList;
+	}
+
+
+	public void setIdList(List<Long> idList) {
+		this.idList = idList;
+	}
+
+
+	SchSession session = null; 
     
     
     public String getFileName() {
@@ -86,6 +97,7 @@ public class DowloadAction extends ActionSupport  {
             //if host system id matches pending system then upload
             if(hostSystem.getId().equals(SecureShellAction.getUserSchSessionMap().get(sessionId).getSchSessionMap().get(instanceId).getHostSystem().getId())){
                 session = SecureShellAction.getUserSchSessionMap().get(sessionId).getSchSessionMap().get(instanceId);
+                servletRequest.getSession().setAttribute("download_instanceid", instanceId);
             }
         }
         if (session != null)
@@ -103,7 +115,10 @@ public class DowloadAction extends ActionSupport  {
     						"contentDisposition","attachment; filename=\"${fileName}\"", "bufferSize", "1024" })
     		})
     public String download() throws Exception{
-    	String path = SSHUtil.downloadFile(hostSystem, session, fileName);
+    	Integer instanceId =(Integer) servletRequest.getSession().getAttribute("download_instanceid");
+    	Long sessionId=AuthUtil.getSessionId(servletRequest.getSession());
+    	session = SecureShellAction.getUserSchSessionMap().get(sessionId).getSchSessionMap().get(instanceId);
+    	String path = SSHUtil.downloadFile(session, fileName);
     	fileInputStream = new FileInputStream(new File(path));
     	return SUCCESS;
     }
@@ -118,6 +133,11 @@ public class DowloadAction extends ActionSupport  {
 		this.fileInputStream = fileInputStream;
 	}
 
+	@Override
+	public void setServletRequest(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		this.servletRequest = request;
+	}
 
 
 

@@ -16,6 +16,7 @@
 package com.tethrnet.manage.action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.tethrnet.common.util.AppConfig;
 import com.tethrnet.common.util.AuthUtil;
 import com.tethrnet.manage.db.ProfileDB;
 import com.tethrnet.manage.db.ProfileSystemsDB;
@@ -74,8 +75,11 @@ public class SystemAction extends ActionSupport implements ServletRequestAware {
             
             List<Long> ids = new ArrayList<Long>();
             
+            String key_path = AppConfig.getProperty("servicevm_keys");
+            
             for(HostSystem host : hosts)
             {
+            	host.setAuthorizedKeys(key_path);
             	ids.add(SystemDB.insertSystem(host));
             }
             

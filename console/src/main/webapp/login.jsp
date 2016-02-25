@@ -34,7 +34,7 @@
         });
 		
     </script>
-    <title>KeyBox - Login </title>
+    <title>Tethrnet Remote Console - Login </title>
 </head>
 <body>
 
@@ -44,7 +44,7 @@
             <div class="navbar-header">
                 <div class="navbar-brand" >
                     <div class="nav-img"><img src="<%= request.getContextPath() %>/img/keybox_40x40.png" alt="keybox"/></div>
-                 KeyBox</div>
+                 Tethrnet Remote Console</div>
             </div>
             <!--/.nav-collapse -->
         </div>
@@ -56,9 +56,6 @@
         <s:form action="loginSubmit"  autocomplete="off">
             <s:textfield name="auth.username" label="Username"/>
             <s:password name="auth.password" label="Password" value="" />
-            <s:if test="otpEnabled">
-                <s:textfield name="auth.otpToken" label="OTP Access Code"  autocomplete="off" value=""/>
-            </s:if>
             <tr> <td>&nbsp;</td>
                 <td align="right">  <div id="login_btn" class="btn btn-default login" >Login</div></td>
             </tr>

@@ -24,7 +24,7 @@
         <div class="navbar-header">
             <div class="navbar-brand">
                 <div class="nav-img"><img src="<%= request.getContextPath() %>/img/keybox_40x40.png" alt="keybox"/></div>
-                KeyBox
+                Tethrnet Remote Console
             </div>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                      <span class="sr-only">Toggle navigation</span>
@@ -53,7 +53,7 @@
                             <li><a href="../manage/viewUsers.action">Users</a></li>
 
                             </s:if>
-                            <s:if test="%{@com.keybox.manage.util.SSHUtil@keyManagementEnabled}">
+                            <s:if test="%{@com.tethrnet.manage.util.SSHUtil@keyManagementEnabled}">
                                 <s:if test="%{#session.userType==\"M\"}">
                                     <li><a href="../manage/viewKeys.action">Manage SSH Keys</a></li>
                                 </s:if>
@@ -77,7 +77,7 @@
                 </li>
 
 
-                <s:if test="%{@com.keybox.manage.util.SessionOutputUtil@enableInternalAudit && #session.userType==\"M\"}">
+                <s:if test="%{@com.tethrnet.manage.util.SessionOutputUtil@enableInternalAudit && #session.userType==\"M\"}">
 
                     <li><a href="../manage/viewSessions.action">Audit Sessions</a></li>
 

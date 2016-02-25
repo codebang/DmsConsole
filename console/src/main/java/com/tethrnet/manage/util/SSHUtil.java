@@ -25,6 +25,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.*;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -45,7 +46,7 @@ public class SSHUtil {
     public static final boolean keyManagementEnabled = "true".equals(AppConfig.getProperty("keyManagementEnabled"));
 
 	//system path to public/private key
-	public static final String KEY_PATH = DBUtils.class.getClassLoader().getResource("keydb").getPath();
+	public static final String KEY_PATH = DBUtils.class.getClassLoader().getResource("tethrnetdb").getPath();
 
 	//key type - rsa or dsa
 	public static final String KEY_TYPE = AppConfig.getProperty("sshKeyType");
@@ -275,21 +276,29 @@ public class SSHUtil {
 		List<String> fileList = new ArrayList<String>();
 		try {
 
-
 			channel = session.getSession().openChannel("sftp");
 
 			c = (ChannelSftp) channel;
+			channel.setInputStream(System.in);
+			channel.setOutputStream(System.out);
+			channel.connect(CHANNEL_TIMEOUT);
 			
-			c.cd(remote_dir);
+			System.out.println(c.getHome());
 			
-			Vector files = c.ls(remote_dir);
+			Vector<ChannelSftp.LsEntry> files = c.ls(remote_dir);
 			
 			 for(int i=0; i<files.size();i++){
-	                fileList.add(files.get(i).toString());
-	            }
+				 String fileName = files.get(i).getFilename();
+				 if(fileName.equals(".") || fileName.equals(".."))
+				 {
+					 continue;
+				 }
+				 fileList.add(fileName);
+			 }
 
 		} catch (Exception e) {
 			log.info(e.toString(), e);
+			e.printStackTrace();
 			hostSystem.setErrorMsg(e.getMessage());
 			hostSystem.setStatusCd(HostSystem.GENERIC_FAIL_STATUS);
 		}
@@ -306,19 +315,28 @@ public class SSHUtil {
 	}
 	
 	
-	public static String downloadFile(HostSystem hostSystem,SchSession session,String fileName)
+	public static String downloadFile(SchSession session,String fileName) throws Exception
 	{
+		HostSystem hostSystem = session.getHostSystem();
 		Channel channel = null;
 		ChannelSftp c = null;
 		String remote_dir = AppConfig.getProperty("remote_download_dir");
 		String local_dir = AppConfig.getProperty("local_download_dir");
-		String temp_file = local_dir + File.separator + fileName;
+		safeMkdir(local_dir);
+		String local_home_dir = local_dir + File.separator + hostSystem.getUser();
+		safeMkdir(local_home_dir);
+		String local_cache_dir = local_home_dir + File.separator + RandomString(10);
+		safeMkdir(local_cache_dir);
+		String temp_file = local_cache_dir + hostSystem.getDisplayNm() + "_" + fileName;
+		FileUtils.touch(new File(temp_file));
 		String remote_file = remote_dir + File.separator + fileName;
-		
 		try {
-
+			
 			OutputStream ouputstream = new FileOutputStream(new File(temp_file));
 			channel = session.getSession().openChannel("sftp");
+			channel.setInputStream(System.in);
+			channel.setOutputStream(System.out);
+			channel.connect(CHANNEL_TIMEOUT);
 
 			c = (ChannelSftp) channel;
 			
@@ -529,8 +547,7 @@ public class SSHUtil {
 //			//add private key
 //			jsch.addIdentity(appKey.getId().toString(), appKey.getPrivateKey().trim().getBytes(), appKey.getPublicKey().getBytes(), passphrase.getBytes());
 
-			String key_url = "/opt/dms.key";
-			jsch.addIdentity(key_url);
+			jsch.addIdentity(hostSystem.getAuthorizedKeys());
 			//create session
 			Session session = jsch.getSession(hostSystem.getUser(), hostSystem.getHost(), hostSystem.getPort());
 
@@ -725,8 +742,33 @@ public class SSHUtil {
 
 	}
 
+	public static String RandomString(int length) {  
+	    String str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";  
+	    java.util.Random random = new java.util.Random(); 
+	    StringBuffer buf = new StringBuffer();  
+	    for (int i = 0; i < length; i++) {  
+	        int num = random.nextInt(62);  
+	        buf.append(str.charAt(num));  
+	    }  
+	    return buf.toString();  
+	}  
 	
-
+	public static String safeMkdir(String path) throws Exception
+	{
+		File file = new File(path);
+		if (file.exists())
+		{
+			if(!file.isDirectory())
+			{
+				throw new Exception(MessageFormat.format("{0} exists, but not a directory", path));
+			}
+		}
+		else
+		{
+			FileUtils.forceMkdir(file);		
+		}
+		return path;
+	}
 
 
 }
