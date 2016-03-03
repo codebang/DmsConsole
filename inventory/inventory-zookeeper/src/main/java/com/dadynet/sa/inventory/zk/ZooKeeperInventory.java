@@ -98,8 +98,10 @@ public class ZooKeeperInventory implements DmsInventory {
 					VirtualMachine vm = VirtualMachine.fromMap(util.toMap(new String(data), convert));
 					vm.setParent(account);
 					vm.setServicetype(service);
-					ret.add(vm);
-					
+					if (vm.getManageip() != null)
+					{
+						ret.add(vm);
+					}					
 				}
 			}
 		}

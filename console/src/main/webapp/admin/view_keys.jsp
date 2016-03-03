@@ -116,7 +116,7 @@
     </s:if>
 
 
-    <title>KeyBox - Manage Keys</title>
+    <title>Tethrnet Remote Console - Manage Keys</title>
 
 </head>
 <body>
@@ -153,20 +153,20 @@
 
                 <tr>
 
-                    <th id="<s:property value="@com.keybox.manage.db.PublicKeyDB@SORT_BY_KEY_NM"/>" class="sort">Key
+                    <th id="<s:property value="@com.tethrnet.manage.db.PublicKeyDB@SORT_BY_KEY_NM"/>" class="sort">Key
                         Name
                     </th>
 
-                    <th id="<s:property value="@com.keybox.manage.db.PublicKeyDB@SORT_BY_PROFILE"/>" class="sort">
+                    <th id="<s:property value="@com.tethrnet.manage.db.PublicKeyDB@SORT_BY_PROFILE"/>" class="sort">
                         Profile
                     </th>
-                    <th id="<s:property value="@com.keybox.manage.db.PublicKeyDB@SORT_BY_TYPE"/>" class="sort">
+                    <th id="<s:property value="@com.tethrnet.manage.db.PublicKeyDB@SORT_BY_TYPE"/>" class="sort">
                         Type
                     </th>
-                    <th id="<s:property value="@com.keybox.manage.db.PublicKeyDB@SORT_BY_FINGERPRINT"/>" class="sort">
+                    <th id="<s:property value="@com.tethrnet.manage.db.PublicKeyDB@SORT_BY_FINGERPRINT"/>" class="sort">
                         Fingerprint
                     </th>
-                    <th id="<s:property value="@com.keybox.manage.db.PublicKeyDB@SORT_BY_CREATE_DT"/>" class="sort">
+                    <th id="<s:property value="@com.tethrnet.manage.db.PublicKeyDB@SORT_BY_CREATE_DT"/>" class="sort">
                         Created
                     </th>
                     <th>&nbsp;</th>

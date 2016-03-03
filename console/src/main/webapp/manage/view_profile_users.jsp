@@ -70,7 +70,7 @@
         });
     </script>
 
-    <title>KeyBox - Assign Users to Profile</title>
+    <title>Tethrnet Remote Console - Assign Users to Profile</title>
 
 </head>
 <body>
@@ -104,19 +104,19 @@
 
                     <tr>
                         <th><s:checkbox name="userSelectAll" cssClass="userSelect" theme="simple"/></th>
-                        <th id="<s:property value="@com.keybox.manage.db.UserDB@SORT_BY_USERNAME"/>" class="sort">Username
+                        <th id="<s:property value="@com.tethrnet.manage.db.UserDB@SORT_BY_USERNAME"/>" class="sort">Username
                         </th>
-                        <s:if test="%{@com.keybox.manage.util.ExternalAuthUtil@externalAuthEnabled}">
-                            <th id="<s:property value="@com.keybox.manage.db.UserDB@SORT_BY_AUTH_TYPE"/>" class="sort">Auth Type
+                        <s:if test="%{@com.tethrnet.manage.util.ExternalAuthUtil@externalAuthEnabled}">
+                            <th id="<s:property value="@com.tethrnet.manage.db.UserDB@SORT_BY_AUTH_TYPE"/>" class="sort">Auth Type
                             </th>
                         </s:if>
-                        <th id="<s:property value="@com.keybox.manage.db.UserDB@SORT_BY_LAST_NM"/>" class="sort">Last
+                        <th id="<s:property value="@com.tethrnet.manage.db.UserDB@SORT_BY_LAST_NM"/>" class="sort">Last
                             Name
                         </th>
-                        <th id="<s:property value="@com.keybox.manage.db.UserDB@SORT_BY_FIRST_NM"/>" class="sort">First
+                        <th id="<s:property value="@com.tethrnet.manage.db.UserDB@SORT_BY_FIRST_NM"/>" class="sort">First
                             Name
                         </th>
-                        <th id="<s:property value="@com.keybox.manage.db.UserDB@SORT_BY_EMAIL"/>" class="sort">Email
+                        <th id="<s:property value="@com.tethrnet.manage.db.UserDB@SORT_BY_EMAIL"/>" class="sort">Email
                             Address
                         </th>
                     </tr>
@@ -136,7 +136,7 @@
                                     <s:property value="username"/>
                                 </s:else>
                             </td>
-                            <s:if test="%{@com.keybox.manage.util.ExternalAuthUtil@externalAuthEnabled}">
+                            <s:if test="%{@com.tethrnet.manage.util.ExternalAuthUtil@externalAuthEnabled}">
                                 <td>
                                     <s:if test="authType==\"BASIC\"">
                                         Basic

@@ -23,7 +23,7 @@
     <jsp:include page="../_res/inc/header.jsp"/>
 
 
-    <title>KeyBox - Main Menu</title>
+    <title>Tethrnet Remote Console - Main Menu</title>
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -109,7 +109,7 @@
                     Create scripts to be executed on selected systems simultaneously through a web-terminal.
                 </td>
              </tr>
-            <s:if test="%{@com.keybox.manage.util.SSHUtil@keyManagementEnabled}">
+            <s:if test="%{@com.tethrnet.manage.util.SSHUtil@keyManagementEnabled}">
             <tr>
                 <s:if test="%{#session.userType==\"M\"}">
                 <td>
@@ -129,7 +129,7 @@
                 </s:else>
             </tr>
             </s:if>
-            <s:if test="%{@com.keybox.manage.util.SessionOutputUtil@enableInternalAudit && #session.userType==\"M\"}">
+            <s:if test="%{@com.tethrnet.manage.util.SessionOutputUtil@enableInternalAudit && #session.userType==\"M\"}">
              <tr>
                 <td>
                     <a href="../manage/viewSessions.action">Audit Sessions</a>

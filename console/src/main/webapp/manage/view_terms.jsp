@@ -137,7 +137,7 @@ $(document).ready(function() {
 
 </style>
 
-<title>KeyBox - Session Terms</title>
+<title>Tethrnet- Session Terms</title>
 
 </head>
 <body>
@@ -147,7 +147,7 @@ $(document).ready(function() {
         <div class="navbar-header">
             <div class="navbar-brand" >
             <div class="nav-img"><img src="<%= request.getContextPath() %>/img/keybox_40x40.png" alt="keybox"/></div>
-             KeyBox</div>
+             TethrnetBox</div>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>

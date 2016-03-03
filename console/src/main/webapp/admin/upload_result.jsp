@@ -23,7 +23,7 @@
     <jsp:include page="../_res/inc/header.jsp"/>
 
 
-    <title>KeyBox - Upload &amp; Push</title>
+    <title>Tethrnet Remote Console - Upload &amp; Push</title>
 
     <script type="text/javascript">
         $(document).ready(function() {

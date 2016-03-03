@@ -38,7 +38,7 @@
         }
     </style>
 
-    <title>KeyBox - Upload &amp; Push</title>
+    <title>Tethrnet Remote Console - Upload &amp; Push</title>
 </head>
 <body style="background: #FFFFFF">
 

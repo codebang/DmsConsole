@@ -72,7 +72,7 @@
         </script>
     </s:if>
 
-    <title>KeyBox - Manage Scripts</title>
+    <title>Tethrnet Remote Console - Manage Scripts</title>
 
 </head>
 <body>
@@ -96,7 +96,7 @@
 
                     <tr>
 
-                        <th id="<s:property value="@com.keybox.manage.db.ScriptDB@SORT_BY_DISPLAY_NM"/>" class="sort">Script Name</th>
+                        <th id="<s:property value="@com.tethrnet.manage.db.ScriptDB@SORT_BY_DISPLAY_NM"/>" class="sort">Script Name</th>
                         <th>&nbsp;</th>
                     </tr>
                     </thead>

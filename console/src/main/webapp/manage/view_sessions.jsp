@@ -62,7 +62,7 @@
     </script>
 
 
-    <title>KeyBox - Audit Sessions</title>
+    <title>Tethrnet Remote Console - Audit Sessions</title>
 </head>
 <body>
 
@@ -85,7 +85,7 @@
                                 <tr>
                                     <s:if test="userList!= null && !userList.isEmpty()">
                                         <td class="align_left">
-                                           <s:select name="sortedSet.filterMap['%{@com.keybox.manage.db.SessionAuditDB@FILTER_BY_USER_ID}']" listKey="id" listValue="username"
+                                           <s:select name="sortedSet.filterMap['%{@com.tethrnet.manage.db.SessionAuditDB@FILTER_BY_USER_ID}']" listKey="id" listValue="username"
                                            class="view_frm_select"
                                             list="userList"
                                             headerKey=""
@@ -94,7 +94,7 @@
                                      </s:if>
                                     <s:if test="systemList!= null && !systemList.isEmpty()">
                                             <td class="align_left">
-                                            <s:select name="sortedSet.filterMap['%{@com.keybox.manage.db.SessionAuditDB@FILTER_BY_SYSTEM_ID}']" listKey="id" listValue="displayLabel"
+                                            <s:select name="sortedSet.filterMap['%{@com.tethrnet.manage.db.SessionAuditDB@FILTER_BY_SYSTEM_ID}']" listKey="id" listValue="displayLabel"
                                             class="view_frm_select"
                                             list="systemList"
                                             headerKey=""
@@ -118,17 +118,17 @@
                 <tr>
 
 
-                    <th id="<s:property value="@com.keybox.manage.db.SessionAuditDB@SORT_BY_USERNAME"/>" class="sort">
+                    <th id="<s:property value="@com.tethrnet.manage.db.SessionAuditDB@SORT_BY_USERNAME"/>" class="sort">
                         Username
                     </th>
 
-                    <th id="<s:property value="@com.keybox.manage.db.SessionAuditDB@SORT_BY_LAST_NM"/>" class="sort">
+                    <th id="<s:property value="@com.tethrnet.manage.db.SessionAuditDB@SORT_BY_LAST_NM"/>" class="sort">
                         Last Name
                     </th>
-                    <th id="<s:property value="@com.keybox.manage.db.SessionAuditDB@SORT_BY_FIRST_NM"/>" class="sort">
+                    <th id="<s:property value="@com.tethrnet.manage.db.SessionAuditDB@SORT_BY_FIRST_NM"/>" class="sort">
                         First Name
                     </th>
-                    <th id="<s:property value="@com.keybox.manage.db.SessionAuditDB@SORT_BY_SESSION_TM"/>" class="sort">
+                    <th id="<s:property value="@com.tethrnet.manage.db.SessionAuditDB@SORT_BY_SESSION_TM"/>" class="sort">
                         Session Time
                     </th>
                     <th>&nbsp;</th>

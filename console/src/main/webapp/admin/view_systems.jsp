@@ -109,7 +109,7 @@
                      <table>
                         <tr>
                             <td class="align_left">
-                                <s:select name="sortedSet.filterMap['%{@com.keybox.manage.db.SystemDB@FILTER_BY_PROFILE_ID}']" listKey="id" listValue="nm"
+                                <s:select name="sortedSet.filterMap['%{@com.tethrnet.manage.db.SystemDB@FILTER_BY_PROFILE_ID}']" listKey="id" listValue="nm"
                                 class="view_frm_select"
                                 list="profileList"
                                 headerKey=""
@@ -136,12 +136,12 @@
                     <tr>
                         <th><s:checkbox name="systemSelectAll" cssClass="systemSelect"
                                             theme="simple"/></th>
-                        <th id="<s:property value="@com.keybox.manage.db.SystemDB@SORT_BY_NAME"/>" class="sort">Display
+                        <th id="<s:property value="@com.tethrnet.manage.db.SystemDB@SORT_BY_NAME"/>" class="sort">Display
                             Name
                         </th>
-                        <th id="<s:property value="@com.keybox.manage.db.SystemDB@SORT_BY_USER"/>" class="sort">User
+                        <th id="<s:property value="@com.tethrnet.manage.db.SystemDB@SORT_BY_USER"/>" class="sort">User
                         </th>
-                        <th id="<s:property value="@com.keybox.manage.db.SystemDB@SORT_BY_HOST"/>" class="sort">Host
+                        <th id="<s:property value="@com.tethrnet.manage.db.SystemDB@SORT_BY_HOST"/>" class="sort">Host
                         </th>
                     </tr>
                     </thead>

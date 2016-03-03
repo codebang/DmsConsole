@@ -76,7 +76,7 @@
                 </s:if>
                 <s:else>
                 $("#add_dialog").modal();
-                <s:if test="%{@com.keybox.manage.util.ExternalAuthUtil@externalAuthEnabled}">
+                <s:if test="%{@com.tethrnet.manage.util.ExternalAuthUtil@externalAuthEnabled}">
                     hideShowPassword($('.auth_type:checked').val());
                 </s:if>
                 </s:else>
@@ -84,7 +84,7 @@
         </script>
     </s:if>
 
-    <title>KeyBox - Manage Users</title>
+    <title>Tethrnet Remote Console - Manage Users</title>
 
 </head>
 <body>
@@ -108,21 +108,21 @@
 
                     <thead>
                     <tr>
-                        <th id="<s:property value="@com.keybox.manage.db.UserDB@SORT_BY_USERNAME"/>" class="sort">Username
+                        <th id="<s:property value="@com.tethrnet.manage.db.UserDB@SORT_BY_USERNAME"/>" class="sort">Username
                         </th>
-                        <th id="<s:property value="@com.keybox.manage.db.UserDB@SORT_BY_USER_TYPE"/>" class="sort">User Type
+                        <th id="<s:property value="@com.tethrnet.manage.db.UserDB@SORT_BY_USER_TYPE"/>" class="sort">User Type
                         </th>
-                        <s:if test="%{@com.keybox.manage.util.ExternalAuthUtil@externalAuthEnabled}">
-                            <th id="<s:property value="@com.keybox.manage.db.UserDB@SORT_BY_AUTH_TYPE"/>" class="sort">Auth Type
+                        <s:if test="%{@com.tethrnet.manage.util.ExternalAuthUtil@externalAuthEnabled}">
+                            <th id="<s:property value="@com.tethrnet.manage.db.UserDB@SORT_BY_AUTH_TYPE"/>" class="sort">Auth Type
                             </th>
                         </s:if>
-                        <th id="<s:property value="@com.keybox.manage.db.UserDB@SORT_BY_LAST_NM"/>" class="sort">Last
+                        <th id="<s:property value="@com.tethrnet.manage.db.UserDB@SORT_BY_LAST_NM"/>" class="sort">Last
                             Name
                         </th>
-                        <th id="<s:property value="@com.keybox.manage.db.UserDB@SORT_BY_FIRST_NM"/>" class="sort">First
+                        <th id="<s:property value="@com.tethrnet.manage.db.UserDB@SORT_BY_FIRST_NM"/>" class="sort">First
                             Name
                         </th>
-                        <th id="<s:property value="@com.keybox.manage.db.UserDB@SORT_BY_EMAIL"/>" class="sort">Email
+                        <th id="<s:property value="@com.tethrnet.manage.db.UserDB@SORT_BY_EMAIL"/>" class="sort">Email
                             Address
                         </th>
                         <th>&nbsp;</th>
@@ -147,7 +147,7 @@
                             Full Access
                          </s:else>
                         </td>
-                        <s:if test="%{@com.keybox.manage.util.ExternalAuthUtil@externalAuthEnabled}">
+                        <s:if test="%{@com.tethrnet.manage.util.ExternalAuthUtil@externalAuthEnabled}">
                             <td>
                                 <s:if test="authType==\"BASIC\"">
                                     Basic
@@ -195,7 +195,7 @@
                             <s:form action="saveUser" class="save_user_form_add" autocomplete="off">
                                 <s:textfield name="user.username" label="Username" size="15"/>
                                 <s:select name="user.userType" list="#{'A':'Administrative Only','M':'Full Access'}" label="UserType"/>
-                                <s:if test="%{@com.keybox.manage.util.ExternalAuthUtil@externalAuthEnabled}">
+                                <s:if test="%{@com.tethrnet.manage.util.ExternalAuthUtil@externalAuthEnabled}">
                                     <s:radio name="user.authType" label="Authentication Type" list="#{'BASIC':'Basic', 'EXTERNAL':'External'}" cssClass="auth_type"/>
                                 </s:if>
                                 <s:textfield name="user.firstNm" label="First Name" size="15"/>
@@ -232,7 +232,7 @@
                                     <s:form action="saveUser" id="save_user_form_edit_%{id}" autocomplete="off">
                                         <s:textfield name="user.username" value="%{username}" label="Username" size="15"/>
                                         <s:select name="user.userType" value="%{userType}" list="#{'A':'Administrative Only','M':'Full Access'}" label="UserType"/>
-                                        <s:if test="%{@com.keybox.manage.util.ExternalAuthUtil@externalAuthEnabled}">
+                                        <s:if test="%{@com.tethrnet.manage.util.ExternalAuthUtil@externalAuthEnabled}">
                                             <s:hidden name="user.authType" value="%{authType}"/>
                                             <tr>
                                                 <td class="tdLabel"><label class="label">Authentication Type</label></td>
@@ -249,7 +249,7 @@
                                         <s:textfield name="user.firstNm" value="%{firstNm}" label="First Name" size="15"/>
                                         <s:textfield name="user.lastNm" value="%{lastNm}" label="Last Name" size="15"/>
                                         <s:textfield name="user.email" value="%{email}" label="Email Address" size="25"/>
-                                        <s:if test="%{!@com.keybox.manage.util.ExternalAuthUtil@externalAuthEnabled || #user.authType==\"BASIC\"}">
+                                        <s:if test="%{!@com.tethrnet.manage.util.ExternalAuthUtil@externalAuthEnabled || #user.authType==\"BASIC\"}">
                                             <s:password name="user.password" value="" label="Password" size="15"/>
                                             <s:password name="user.passwordConfirm" value="" label="Confirm Password" size="15"/>
                                         </s:if>

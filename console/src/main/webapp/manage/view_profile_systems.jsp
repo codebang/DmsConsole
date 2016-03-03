@@ -68,7 +68,7 @@
         });
     </script>
 
-    <title>KeyBox - Assign Systems to Profile</title>
+    <title>Tethrnet Remote Console - Assign Systems to Profile</title>
 
 </head>
 <body>
@@ -102,9 +102,9 @@
 
                     <tr>
                         <th><s:checkbox name="systemSelectAll" cssClass="systemSelect" theme="simple"/></th>
-                        <th id="<s:property value="@com.keybox.manage.db.SystemDB@SORT_BY_NAME"/>" class="sort">Display Name</th>
-                        <th id="<s:property value="@com.keybox.manage.db.SystemDB@SORT_BY_USER"/>" class="sort">User</th>
-                        <th id="<s:property value="@com.keybox.manage.db.SystemDB@SORT_BY_HOST"/>" class="sort">Host</th>
+                        <th id="<s:property value="@com.tethrnet.manage.db.SystemDB@SORT_BY_NAME"/>" class="sort">Display Name</th>
+                        <th id="<s:property value="@com.tethrnet.manage.db.SystemDB@SORT_BY_USER"/>" class="sort">User</th>
+                        <th id="<s:property value="@com.tethrnet.manage.db.SystemDB@SORT_BY_HOST"/>" class="sort">Host</th>
                     </tr>
                     </thead>
                     <tbody>

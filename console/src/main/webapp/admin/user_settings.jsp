@@ -37,7 +37,7 @@
         }
     </style>
 
-    <title>KeyBox - Set Admin Password</title>
+    <title>Tethrnet Remote Console - Set Admin Password</title>
 </head>
 <body>
 
@@ -45,7 +45,7 @@
     <jsp:include page="../_res/inc/navigation.jsp"/>
 
     <div class="container">
-    <s:if test="%{!@com.keybox.manage.util.ExternalAuthUtil@externalAuthEnabled || #session.authType==\"BASIC\"}">
+    <s:if test="%{!@com.tethrnet.manage.util.ExternalAuthUtil@externalAuthEnabled || #session.authType==\"BASIC\"}">
 
         <h3>Set Admin Password</h3>
         <p>Change your administrative password below</p>

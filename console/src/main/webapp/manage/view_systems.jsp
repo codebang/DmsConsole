@@ -81,7 +81,7 @@
         </script>
     </s:if>
 
-    <title>KeyBox - Manage Systems / Distribute SSH Keys</title>
+    <title>Tethrnet Remote Console - Manage Systems / Distribute SSH Keys</title>
 </head>
 <body>
 
@@ -109,14 +109,14 @@
 
 
                 <tr>
-                    <th id="<s:property value="@com.keybox.manage.db.SystemDB@SORT_BY_NAME"/>" class="sort">Display
+                    <th id="<s:property value="@com.tethrnet.manage.db.SystemDB@SORT_BY_NAME"/>" class="sort">Display
                         Name
                     </th>
-                    <th id="<s:property value="@com.keybox.manage.db.SystemDB@SORT_BY_USER"/>" class="sort">User
+                    <th id="<s:property value="@com.tethrnet.manage.db.SystemDB@SORT_BY_USER"/>" class="sort">User
                     </th>
-                    <th id="<s:property value="@com.keybox.manage.db.SystemDB@SORT_BY_HOST"/>" class="sort">Host
+                    <th id="<s:property value="@com.tethrnet.manage.db.SystemDB@SORT_BY_HOST"/>" class="sort">Host
                     </th>
-                    <th id="<s:property value="@com.keybox.manage.db.SystemDB@SORT_BY_STATUS"/>" class="sort">Status
+                    <th id="<s:property value="@com.tethrnet.manage.db.SystemDB@SORT_BY_STATUS"/>" class="sort">Status
                     </th>
                     <th>&nbsp;</th>
                 </tr>

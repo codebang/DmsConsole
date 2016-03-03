@@ -74,7 +74,7 @@
     </script>
 
 
-    <title>KeyBox - View / Disable SSH Keys</title>
+    <title>Tethrnet Remote Console - View / Disable SSH Keys</title>
 
 </head>
 <body>
@@ -100,7 +100,7 @@
                             <td>|</td>
                             <s:if test="userList!= null && !userList.isEmpty()">
                                 <td >
-                                    <s:select name="sortedSet.filterMap['%{@com.keybox.manage.db.PublicKeyDB@FILTER_BY_USER_ID}']" listKey="id" listValue="username"
+                                    <s:select name="sortedSet.filterMap['%{@com.tethrnet.manage.db.PublicKeyDB@FILTER_BY_USER_ID}']" listKey="id" listValue="username"
                                               class="view_frm_select"
                                               list="userList"
                                               headerKey=""

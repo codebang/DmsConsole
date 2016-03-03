@@ -67,7 +67,7 @@
         </script>
     </s:if>
 
-    <title>KeyBox - Manage System Profiles</title>
+    <title>Tethrnet Remote Console - Manage System Profiles</title>
 </head>
 <body>
 
@@ -96,7 +96,7 @@
                 <thead>
 
                 <tr>
-                    <th id="<s:property value="@com.keybox.manage.db.ProfileDB@SORT_BY_PROFILE_NM"/>" class="sort">
+                    <th id="<s:property value="@com.tethrnet.manage.db.ProfileDB@SORT_BY_PROFILE_NM"/>" class="sort">
                         Profile Name
                     </th>
                     <th>&nbsp;</th>

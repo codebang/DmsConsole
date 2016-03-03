@@ -198,7 +198,7 @@ public class AuthUtil {
         //set session timeout
         SimpleDateFormat sdf = new SimpleDateFormat("MMddyyyyHHmmss");
         Calendar timeout = Calendar.getInstance();
-        timeout.add(Calendar.MINUTE, 15);
+        timeout.add(Calendar.MINUTE, 30);
         session.setAttribute("timeout", sdf.format(timeout.getTime()));
     }
 
